@@ -138,9 +138,9 @@ launchctl unload ~/Library/LaunchAgents/com.user.remote-cli.plist
 | **Voice dictation** | Use the text input field at the bottom of the Voice UI — iOS dictation works natively there. Avoid dictating directly into the terminal (the raw xterm.js terminal duplicates text due to IME handling). |
 | **Quick keys** | The button bar gives you tap targets for arrow keys, Tab, Esc, Ctrl+C, Enter, and Clear — keys that are hard to hit on a phone keyboard. |
 | **Switch to your desktop** | Open any terminal on your Mac and run `tmux attach -t claude` to pick up the exact same session you were using on your phone. Both screens mirror each other. |
-| **Resume on your phone** | Hit the **Resume** button in the Voice UI to reconnect to a previous Claude Code conversation. |
-| **New session** | Hit the **New** button to exit the current Claude session and start a fresh one. |
-| **Copy output** | Hit **Copy** to capture the terminal scrollback into a text area you can select and copy from. |
+| **Resume on your phone** | Hit the **Resume** button in the Voice UI to reconnect to a previous Claude Code conversation. If the resume screen gets stuck, press **Ctrl+C** twice to exit the Claude session, then hit **New** to start fresh. |
+| **New session** | Hit the **New** button to close the current Claude session and start a fresh one. |
+| **Copy output** | Hit **Copy** to open a scrollable text view of the full terminal output. You can scroll all the way up and down through the response, then long-press to select and copy. |
 | **Auto-reconnect** | When your phone wakes from sleep, the terminal iframe reloads automatically. No manual refresh needed. |
 
 ## Security
