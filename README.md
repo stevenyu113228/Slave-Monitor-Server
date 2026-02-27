@@ -46,6 +46,16 @@ Help me install and set up claude-code-remote
 
 The included `CLAUDE.md` gives Claude Code all the context it needs to check your prerequisites, configure the scripts for your machine, and get everything running.
 
+## Quick Install (Linux)
+
+For Debian/Ubuntu, run the install script to set up all dependencies at once:
+
+```bash
+./scripts/install-linux.sh
+```
+
+This installs ttyd, tmux, Python packages, and Tailscale. After it finishes, follow the prompts to connect Tailscale and start the service.
+
 ## Step-by-Step Setup
 
 If you prefer to do it manually, follow these steps:
