@@ -20,4 +20,14 @@ elif [ "$(uname -s)" = "Darwin" ]; then
 else
     TMUX_BIN="/usr/bin/tmux"
 fi
-exec "$TMUX_BIN" new-session -A -s "$SESSION" -c "$HOME"
+
+# Create session if it doesn't exist
+if ! "$TMUX_BIN" has-session -t "$SESSION" 2>/dev/null; then
+    "$TMUX_BIN" new-session -d -s "$SESSION" -c "$HOME"
+fi
+
+# Enable mouse mode (required for iOS app scroll via SGR mouse sequences)
+"$TMUX_BIN" set -g mouse on
+
+# Attach to the session
+exec "$TMUX_BIN" attach-session -t "$SESSION"
