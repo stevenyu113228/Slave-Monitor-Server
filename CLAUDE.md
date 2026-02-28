@@ -1,4 +1,4 @@
-# Claude Code Remote
+# Slave Monitor Server
 
 ## What This Is
 
