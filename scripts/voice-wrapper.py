@@ -254,6 +254,11 @@ async def index():
         <button class="close-btn" onclick="closeCopy()">Close</button>
     </div>
     <script>
+        // Suppress "Leave site?" prompt when switching tabs
+        window.addEventListener('beforeunload', (e) => {{
+            delete e.returnValue;
+        }});
+
         const input = document.getElementById('cmd');
         const UPLOAD_DIR = '/tmp/claude-uploads/';
 
