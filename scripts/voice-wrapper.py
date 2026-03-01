@@ -226,6 +226,7 @@ async def index():
             <button onclick="sendKey('Up')">&#9650;</button>
             <button onclick="sendKey('Down')">&#9660;</button>
             <button onclick="sendKey('Tab')">Tab</button>
+            <button onclick="sendKey('BTab')">&#8679;Tab</button>
             <button onclick="sendKey('Escape')">Esc</button>
             <button onclick="sendKey('C-c')">Ctrl+C</button>
             <button onclick="sendKey('Enter')">Enter</button>
@@ -611,7 +612,7 @@ async def send_text(payload: TextInput):
 
 
 ALLOWED_KEYS = {
-    "Up", "Down", "Left", "Right", "Tab", "Escape", "Enter",
+    "Up", "Down", "Left", "Right", "Tab", "BTab", "Escape", "Enter",
     "C-c", "C-l", "C-d", "C-z", "C-a", "C-e", "C-k", "C-u", "C-o",
     "BSpace", "DC", "Home", "End", "PPage", "NPage",
 }
