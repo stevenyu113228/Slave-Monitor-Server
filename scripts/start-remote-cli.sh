@@ -37,9 +37,16 @@ sleep 1
 # Keep machine awake: caffeinate on macOS, systemd-inhibit on Linux
 if [ "$OS" = "Darwin" ]; then
     pkill -f "caffeinate" 2>/dev/null || true
-    caffeinate -d -i -s &
+    # Only inhibit sleep while on AC power; battery → normal sleep
+    (while kill -0 $$ 2>/dev/null; do
+        if pmset -g ps | head -1 | grep -q "AC Power"; then
+            caffeinate -i -s -t 30 2>/dev/null
+        else
+            sleep 30
+        fi
+    done) &
     INHIBIT_PID=$!
-    echo "caffeinate running (PID: $INHIBIT_PID)"
+    echo "sleep inhibitor running (PID: $INHIBIT_PID, AC-only)"
 else
     if command -v systemd-inhibit >/dev/null 2>&1; then
         systemd-inhibit --what=idle --who="remote-cli" --why="Keeping machine awake for remote CLI" sleep infinity &
